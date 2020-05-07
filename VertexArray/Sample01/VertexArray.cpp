@@ -22,12 +22,14 @@ void MyDisplay() { // 디스플레이 이벤트 함수 정의
 	glVertexPointer(3, GL_FLOAT, 0, MyVertices);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	//glRotatef(30.0, 1.0, 1.0, 1.0);
-	glTranslatef(0.25f, 0.25f, .025f); // 이쪽에 위치시킴
-	glTranslatef(-0.25f, -0.25f, -0.25f); // 처음 위치로 다시 돌아 가서
-	glRotatef(30, 0.0f, 0.0f, 1.0f); // z축 중심 회전 시키고
-	glTranslatef(0.25f, 0.25f, .025f); // 다시 원위치
 
+	//glRotatef(30.0, 1.0, 1.0, 1.0);
+
+	glTranslatef(0.25f, 0.25f, 0.25f); // 원위치
+	glRotatef(30, 0.0f, 0.0f, 1.0f); // z축 중심 회전 시키고
+	glTranslatef(-0.25f, -0.25f, -0.25f); // 원점
+
+	glTranslatef(0.25f, 0.25f,  0.25f); // 모델변환
 
 	for (GLint i = 0; i < 6; i++) {
 		glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_BYTE, &MyVertexList[4*i]); // 실제로 육면체 그림
